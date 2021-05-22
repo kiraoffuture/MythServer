@@ -110,3 +110,4 @@ dist
 .idea/modules.xml
 .idea/mythnovelserver.iml
 .idea/vcs.xml
+/src/public/api-doc/
