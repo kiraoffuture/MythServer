@@ -2,4 +2,6 @@ const novelModel = require("../database/novel.model")
 
 const getAll = novelModel.getAll
 
-module.exports = {getAll}
+const getNewest = novelModel.getNewest
+
+module.exports = {getAll, getNewest}

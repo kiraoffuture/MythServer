@@ -31,4 +31,35 @@ const novelController = require("../controllers/novel.controller")
  */
 router.get("/get_all", novelController.getAll)
 
+/**
+ @api {get} /novel/get_newest Get 30 newest novels
+ @apiName GetNewestNovels
+ @apiGroup Novel
+
+ @apiParam {Integer} size=30 Size of list novels
+
+ @apiSuccess {String} status <code>success</code>
+ @apiSuccess {Object} data Novel object
+
+ @apiSuccessExample Success-Response:
+ {
+   "status":"success",
+   "data":[
+      {
+         "id":1,
+         "image_url":"https://cdn.wuxiaworld.com/images/covers/dop.jpg?ver=77c208ac6bf01989ba4c4b8f8b4ade7108ce0604",
+         "title":"Duke Pendragon",
+         "details":"\n<p><strong>Schedule:</strong> one chapter per day</p><p><strong>Discord link:</strong> <a href=\"https://discord.gg/SfvPUuGqPA\">https://discord.gg/SfvPUuGqPA</a></p>\n",
+         "source_url":"https://www.wuxiaworld.com/novel/duke-pendragon",
+         "view_count":0,
+         "created_at":"2021-05-17T15:24:09.000Z",
+         "rating":0,
+         "rating_count":0,
+         "status":"Ongoing"
+      }
+   ]
+}
+ */
+router.get("/get_newest", novelController.getNewest)
+
 module.exports = router

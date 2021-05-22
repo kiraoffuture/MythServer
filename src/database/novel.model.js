@@ -5,4 +5,9 @@ const getAll = async () => {
     return query(sql)
 }
 
-module.exports = {getAll}
+const getNewest = async (limit) => {
+    const sql = `select * from novel order by updated_at desc limit ${limit}`
+    return query(sql)
+}
+
+module.exports = {getAll, getNewest}
