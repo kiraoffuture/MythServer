@@ -20,4 +20,21 @@ const getNewest = async (limit) => {
     return novels
 }
 
-module.exports = {getAll, getNewest}
+const getPopular = async (limit) => {
+    const novels = await novelModel.getPopular(limit)
+    for await (const novel of novels) {
+        novel.chapter_count = await chapterModel.countChapterByNovelId(novel.id)
+        const genreIds = await genreNovelModel.getGenreIdsByNovelId(novel.id)
+        novel.genres = await genreModel.getGenreNamesByIds(genreIds)
+        const authorIds = await authorNovelModel.getAuthorIdsByNovelId(novel.id)
+        novel.authors = await authorModel.getAuthorsByAuthorIds(authorIds)
+        novel.source_url = undefined
+        novel.created_at = undefined
+        novel.updated_at = undefined
+        novel.rating_count = undefined
+        novel.status = undefined
+    }
+    return novels
+}
+
+module.exports = {getAll, getNewest, getPopular}

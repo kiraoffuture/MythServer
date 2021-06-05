@@ -23,4 +23,14 @@ const getNewest = (req, res) => {
     })
 }
 
-module.exports = {getAll, getNewest}
+const getPopular = (req, res) => {
+    const size = req.query.size ? req.query.size : constants.popularNovelsSize
+    novelService.getPopular(size).then((novels) => {
+        res.json(responseBuilder.build(HttpCode.OK, novels))
+    }, (error) => {
+        console.log(error)
+        res.json(responseBuilder.build(HttpCode.OK, []))
+    })
+}
+
+module.exports = {getAll, getNewest, getPopular}
