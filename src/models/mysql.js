@@ -31,4 +31,4 @@ const query = async (sql, params) => {
     return querySql(connection, sql, params)
 }
 
-module.exports = query
+module.exports = {connectMysql, query}
