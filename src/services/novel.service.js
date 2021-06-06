@@ -37,4 +37,15 @@ const getPopular = async (limit) => {
     return novels
 }
 
-module.exports = {getAll, getNewest, getPopular}
+const getDetail = async (id) => {
+    const novel = await novelModel.getDetail(id)
+    const authorIds = await authorNovelModel.getAuthorIdsByNovelId(novel.id)
+    novel.authors = await authorModel.getAuthorsByAuthorIds(authorIds)
+    novel.source_url = undefined
+    novel.created_at = undefined
+    novel.updated_at = undefined
+    novel.rating_count = undefined
+    return novel
+}
+
+module.exports = {getAll, getNewest, getPopular, getDetail}
