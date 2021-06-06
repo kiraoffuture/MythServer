@@ -9,5 +9,10 @@ const getNewest = async (limit) => query(`select *
 const getPopular = async (limit) => query(`select *
                                            from novel
                                            order by view_count desc limit ${limit}`)
-
-module.exports = {getAll, getNewest, getPopular}
+const getDetail = async (id) => {
+    const novels = await query(`select *
+                                from novel
+                                where id = ?`, [id])
+    return novels[0]
+}
+module.exports = {getAll, getNewest, getPopular, getDetail}

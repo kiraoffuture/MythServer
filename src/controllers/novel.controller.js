@@ -2,12 +2,13 @@ const novelService = require("../services/novel.service")
 const responseBuilder = require("../common/builders/response.builder")
 const {HttpCode} = require("../common/enums");
 const constants = require("../common/constants")
+const logError = require("../common/error-logs")
 
 const getAll = (req, res) => {
     novelService.getAll().then((novels) => {
         res.json(responseBuilder.build(HttpCode.OK, novels))
     }, (error) => {
-        console.log("error = " + error)
+        logError("Novel getAll", {size}, error)
         res.json(responseBuilder.build(HttpCode.OK, []))
     })
     return this
@@ -18,7 +19,7 @@ const getNewest = (req, res) => {
     novelService.getNewest(size).then((novels) => {
         res.json(responseBuilder.build(HttpCode.OK, novels))
     }, (error) => {
-        console.log(error)
+        logError("Novel getNewest", {size}, error)
         res.json(responseBuilder.build(HttpCode.OK, []))
     })
 }
@@ -28,9 +29,20 @@ const getPopular = (req, res) => {
     novelService.getPopular(size).then((novels) => {
         res.json(responseBuilder.build(HttpCode.OK, novels))
     }, (error) => {
-        console.log(error)
+        logError("Novel getPopular", {size}, error)
         res.json(responseBuilder.build(HttpCode.OK, []))
     })
 }
 
-module.exports = {getAll, getNewest, getPopular}
+const getDetail = (req, res) => {
+    const novelId = req.params.id
+    novelService.getDetail(novelId).then(novel => {
+        res.json(responseBuilder.build(HttpCode.OK, novel))
+    }, error => {
+        logError("Novel getDetail", {novelId}, error)
+        res.status(HttpCode.NotFound)
+        res.json(responseBuilder.build(HttpCode.NotFound))
+    })
+}
+
+module.exports = {getAll, getNewest, getPopular, getDetail}
