@@ -107,4 +107,30 @@ router.get("/popular", novelController.getPopular)
  */
 router.get("/:id", novelController.getDetail)
 
+/**
+ @api {get} /novel/chapters/{id} Get list chapters of novel
+ @apiName GetNovelChapters
+ @apiGroup Novel
+
+ @apiParam {Integer} id Id of novel
+
+ @apiSuccess {String} status <code>success</code>
+ @apiSuccess {Object} data List chapters
+
+ @apiSuccessExample Success-Response:
+ {
+   "status":"success",
+   "data": {
+             "id":1,
+             "image_url":"https://cdn.wuxiaworld.com/images/covers/dop.jpg?ver=77c208ac6bf01989ba4c4b8f8b4ade7108ce0604",
+             "title":"Duke Pendragon",
+             "details":"\n<p><strong>Schedule:</strong> one chapter per day</p><p><strong>Discord link:</strong> <a href=\"https://discord.gg/SfvPUuGqPA\">https://discord.gg/SfvPUuGqPA</a></p>\n",
+             "view_count":0,
+             "rating":0,
+             "status":"Ongoing"
+            }
+}
+ */
+router.get("/chapters/:id", novelController.getChapters)
+
 module.exports = router
