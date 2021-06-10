@@ -10,5 +10,11 @@ const countChapterByNovelId = async (novelId) => {
 const getChaptersByNovelId = async (novelId) => query(`select id, \`index\`, title
                                                        from chapter
                                                        where id_novel = ?`, [novelId])
+const getChapter = async (chapterId) => {
+    const chapters = await query(`select id, \`index\`, title, content
+                                  from chapter
+                                  where id = ?`, [chapterId])
+    return chapters[0]
+}
 
-module.exports = {countChapterByNovelId, getChaptersByNovelId}
+module.exports = {countChapterByNovelId, getChaptersByNovelId, getChapter}
