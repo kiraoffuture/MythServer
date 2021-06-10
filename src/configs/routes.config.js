@@ -6,6 +6,10 @@ const routes = Object.freeze([
     {
         path: "/api",
         router: "src/routers/public.router"
+    },
+    {
+        path: "/chapter",
+        router: "src/routers/chapter.router"
     }
 ])
 

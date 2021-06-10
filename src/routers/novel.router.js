@@ -119,16 +119,19 @@ router.get("/:id", novelController.getDetail)
 
  @apiSuccessExample Success-Response:
  {
-   "status":"success",
-   "data": {
-             "id":1,
-             "image_url":"https://cdn.wuxiaworld.com/images/covers/dop.jpg?ver=77c208ac6bf01989ba4c4b8f8b4ade7108ce0604",
-             "title":"Duke Pendragon",
-             "details":"\n<p><strong>Schedule:</strong> one chapter per day</p><p><strong>Discord link:</strong> <a href=\"https://discord.gg/SfvPUuGqPA\">https://discord.gg/SfvPUuGqPA</a></p>\n",
-             "view_count":0,
-             "rating":0,
-             "status":"Ongoing"
-            }
+    "status": "success",
+    "data": [
+        {
+            "id": 51,
+            "index": 1,
+            "title": "Book 1 – Prologue"
+        },
+        {
+            "id": 150,
+            "index": 2,
+            "title": "Book 6, Prologue - Heart to Heart"
+        }
+    ]
 }
  */
 router.get("/chapters/:id", novelController.getChapters)

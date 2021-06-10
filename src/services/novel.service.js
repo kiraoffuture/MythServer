@@ -49,9 +49,7 @@ const getDetail = async (id) => {
 }
 
 const getChapters = async (novelId) => {
-    const chapters = await chapterModel.getChaptersByNovelId(novelId)
-    console.log(chapters)
-    return chapters
+    return await chapterModel.getChaptersByNovelId(novelId)
 }
 
 module.exports = {getAll, getNewest, getPopular, getDetail, getChapters}
