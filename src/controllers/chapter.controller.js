@@ -8,7 +8,7 @@ const getChapter = (req, res) => {
     chapterService.getChapter(chapterId).then(chapter => {
         res.json(responseBuilder.build(HttpCode.OK, chapter))
     }, error => {
-        logError("Novel getChapter", {chapterId}, error)
+        logError("Chapter getChapter", {chapterId}, error)
         res.status(HttpCode.NotFound)
         res.json(responseBuilder.build(HttpCode.NotFound))
     })
