@@ -52,4 +52,6 @@ const getChapters = async (novelId) => {
     return await chapterModel.getChaptersByNovelId(novelId)
 }
 
-module.exports = {getAll, getNewest, getPopular, getDetail, getChapters}
+const getFirstChapterByNovelId = async (novelId) => chapterModel.getFirstChapterByNovelId(novelId)
+
+module.exports = {getAll, getNewest, getPopular, getDetail, getChapters, getFirstChapterByNovelId}
