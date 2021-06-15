@@ -41,6 +41,8 @@ const getDetail = async (id) => {
     const novel = await novelModel.getDetail(id)
     const authorIds = await authorNovelModel.getAuthorIdsByNovelId(novel.id)
     novel.authors = await authorModel.getAuthorsByAuthorIds(authorIds)
+    const genreIds = await genreNovelModel.getGenreIdsByNovelId(novel.id)
+    novel.genres = await genreModel.getGenreNamesByIds(genreIds)
     novel.source_url = undefined
     novel.created_at = undefined
     novel.updated_at = undefined
@@ -48,10 +50,10 @@ const getDetail = async (id) => {
     return novel
 }
 
-const getChapters = async (novelId) => {
-    return await chapterModel.getChaptersByNovelId(novelId)
-}
+const getChapters = async (novelId) => chapterModel.getChaptersByNovelId(novelId)
 
 const getFirstChapterByNovelId = async (novelId) => chapterModel.getFirstChapterByNovelId(novelId)
 
-module.exports = {getAll, getNewest, getPopular, getDetail, getChapters, getFirstChapterByNovelId}
+const getFullChapters = async (novelId) => chapterModel.getFullChaptersByNovelId(novelId)
+
+module.exports = {getAll, getNewest, getPopular, getDetail, getChapters, getFirstChapterByNovelId, getFullChapters}
