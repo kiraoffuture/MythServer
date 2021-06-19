@@ -21,18 +21,9 @@ const getChapter = async (chapterId) => {
     return chapters[0]
 }
 
-const getFirstChapterByNovelId = async (novelId) => {
-    const chapters = await query(`select id, \`index\`, title, content
-                                  from chapter
-                                  where id_novel = ?
-                                  order by \`index\` `, [novelId])
-    return chapters[0]
-}
-
 module.exports = {
     countChapterByNovelId,
     getChaptersByNovelId,
     getChapter,
-    getFirstChapterByNovelId,
     getFullChaptersByNovelId
 }

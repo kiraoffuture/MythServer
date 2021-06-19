@@ -55,17 +55,6 @@ const getChapters = (req, res) => {
     })
 }
 
-const getFirstChapterByNovelId = (req, res) => {
-    const novelId = req.params.id
-    novelService.getFirstChapterByNovelId(novelId).then(chapter => {
-        res.json(responseBuilder.build(HttpCode.OK, chapter))
-    }, error => {
-        logError("Novel getFirstChapterByNovelId", {novelId}, error)
-        res.status(HttpCode.NotFound)
-        res.json(responseBuilder.build(HttpCode.NotFound))
-    })
-}
-
 const getFullChapters = (req, res) => {
     const novelId = req.params.id
     novelService.getFullChapters(novelId).then(chapters => {
@@ -76,4 +65,4 @@ const getFullChapters = (req, res) => {
     })
 }
 
-module.exports = {getAll, getNewest, getPopular, getDetail, getChapters, getFirstChapterByNovelId, getFullChapters}
+module.exports = {getAll, getNewest, getPopular, getDetail, getChapters, getFullChapters}
