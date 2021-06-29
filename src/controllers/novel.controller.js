@@ -3,6 +3,7 @@ const responseBuilder = require("../common/builders/response.builder")
 const {HttpCode} = require("../common/enums");
 const constants = require("../common/constants")
 const logError = require("../common/error-logs")
+const {isBlank} = require("../common/helper");
 
 const getAll = (req, res) => {
     novelService.getAll().then((novels) => {
@@ -35,7 +36,7 @@ const getPopular = (req, res) => {
 }
 
 const getDetail = (req, res) => {
-    const novelId = req.params.id
+    const novelId = req.query.id
     novelService.getDetail(novelId).then(novel => {
         res.json(responseBuilder.build(HttpCode.OK, novel))
     }, error => {
@@ -65,4 +66,19 @@ const getFullChapters = (req, res) => {
     })
 }
 
-module.exports = {getAll, getNewest, getPopular, getDetail, getChapters, getFullChapters}
+const search = (req, res) => {
+    const searchText = req.query.search_text
+    if (isBlank(searchText)) {
+        logError("Novel search", {searchText}, Error("Empty key search"))
+        res.json(responseBuilder.build(HttpCode.OK, []))
+        return
+    }
+    novelService.search(searchText).then(novels => {
+        res.json(responseBuilder.build(HttpCode.OK, novels))
+    }, error => {
+        logError("Novel search", {searchText}, error)
+        res.json(responseBuilder.build(HttpCode.OK, []))
+    })
+}
+
+module.exports = {getAll, getNewest, getPopular, getDetail, getChapters, getFullChapters, search}

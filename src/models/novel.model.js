@@ -15,4 +15,9 @@ const getDetail = async (id) => {
                                 where id = ?`, [id])
     return novels[0]
 }
-module.exports = {getAll, getNewest, getPopular, getDetail}
+const search = async (searchText) => {
+    return await query(`select id, title
+                        from novel
+                        where title like ?`, [`%${searchText}%`])
+}
+module.exports = {getAll, getNewest, getPopular, getDetail, search}
