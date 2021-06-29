@@ -82,7 +82,7 @@ router.get("/newest", novelController.getNewest)
 router.get("/popular", novelController.getPopular)
 
 /**
- @api {get} /novel/{id} Get detail of novel
+ @api {get} /novel/detail Get detail of novel
  @apiName GetNovelDetail
  @apiGroup Novel
 
@@ -105,7 +105,7 @@ router.get("/popular", novelController.getPopular)
             }
 }
  */
-router.get("/:id", novelController.getDetail)
+router.get("/detail", novelController.getDetail)
 
 /**
  @api {get} /novel/chapters/{id} Get list chapters of novel
@@ -166,5 +166,36 @@ router.get("/chapters/:id", novelController.getChapters)
 }
  */
 router.get("/download_chapters/:id", novelController.getFullChapters)
+
+/**
+ @api {get} /novel/search Search novel
+ @apiName SearchNovel
+ @apiGroup Novel
+
+ @apiParam {String} search_text key to search novel
+
+ @apiSuccess {String} status <code>success</code>
+ @apiSuccess {Object} data List Novels
+
+ @apiSuccessExample Success-Response:
+ {
+    "status": "success",
+    "data": [
+        {
+            "id": 13,
+            "title": "The Sword and The Shadow"
+        },
+        {
+            "id": 68,
+            "title": "VRMMO: Passing of the Sword"
+        },
+        {
+            "id": 78,
+            "title": "Almighty Sword Domain"
+        }
+    ]
+}
+ */
+router.get("/search", novelController.search)
 
 module.exports = router

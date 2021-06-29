@@ -54,4 +54,6 @@ const getChapters = async (novelId) => chapterModel.getChaptersByNovelId(novelId
 
 const getFullChapters = async (novelId) => chapterModel.getFullChaptersByNovelId(novelId)
 
-module.exports = {getAll, getNewest, getPopular, getDetail, getChapters, getFullChapters}
+const search = async (searchText) => novelModel.search(searchText)
+
+module.exports = {getAll, getNewest, getPopular, getDetail, getChapters, getFullChapters, search}
