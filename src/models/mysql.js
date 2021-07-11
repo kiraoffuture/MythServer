@@ -2,11 +2,11 @@ const mysql = require("mysql")
 const {MySqlState} = require("../common/enums")
 
 const connection = mysql.createConnection({
-    host: "localhost",
-    user: "root",
-    password: "",
-    database: "myth",
-    charset: "utf8_general_ci"
+    host: "remotemysql.com",
+    user: "KWvA4YaPe4",
+    password: "Pw78MSiLB3",
+    database: "KWvA4YaPe4",
+    charset: "utf8_unicode_ci"
 })
 
 const connectMysql = async () => new Promise(((resolve, reject) => {
@@ -17,6 +17,7 @@ const connectMysql = async () => new Promise(((resolve, reject) => {
 }))
 
 const querySql = async (connection, sql, params) => new Promise(((resolve, reject) => {
+    console.log(sql)
     connection.query(sql, params, (error, results) => {
         if (error) return reject(error)
         return resolve(results)
