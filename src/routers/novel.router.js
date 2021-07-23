@@ -182,16 +182,24 @@ router.get("/download_chapters/:id", novelController.getFullChapters)
     "status": "success",
     "data": [
         {
-            "id": 13,
-            "title": "The Sword and The Shadow"
+            "id": 1,
+            "title": "Tối Cường Hệ Thống Đế Hoàng",
+            "image_url": "https://123truyen.com/images/2020/12/toi-cuong-he-thong-de-hoang.jpeg"
         },
         {
-            "id": 68,
-            "title": "VRMMO: Passing of the Sword"
+            "id": 2,
+            "title": "Võ Thần Chúa Tể",
+            "image_url": "https://123truyen.com/images/2019/07/vo-than-chua-te.jpeg"
         },
         {
-            "id": 78,
-            "title": "Almighty Sword Domain"
+            "id": 3,
+            "title": "Thần Đế",
+            "image_url": "https://123truyen.com/images/2020/03/than-de.jpeg"
+        },
+        {
+            "id": 4,
+            "title": "Tuyệt Thế Vũ Thần",
+            "image_url": "https://123truyen.com/images/2019/07/tuyet-the-vu-than.jpeg"
         }
     ]
 }

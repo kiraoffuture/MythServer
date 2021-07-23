@@ -4,11 +4,13 @@ const getAll = async () => query("select * from novel")
 
 const getNewest = async (limit) => query(`select *
                                           from novel
-                                          order by updated_at desc limit ${limit}`)
+                                          order by updated_at desc
+                                          limit ${limit}`)
 
 const getPopular = async (limit) => query(`select *
                                            from novel
-                                           order by view_count desc limit ${limit}`)
+                                           order by view_count desc
+                                           limit ${limit}`)
 const getDetail = async (id) => {
     const novels = await query(`select *
                                 from novel
@@ -16,8 +18,8 @@ const getDetail = async (id) => {
     return novels[0]
 }
 const search = async (searchText) => {
-    return await query(`select id, title
+    return await query(`select id, title, image_url
                         from novel
-                        where title like ?`, [`%${searchText}%`])
+                        where title like ? limit 5`, [`%${searchText}%`])
 }
 module.exports = {getAll, getNewest, getPopular, getDetail, search}
