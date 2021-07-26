@@ -1,4 +1,4 @@
-const chapterModel = require("../models/chapter.model");
+const chapterModel = require("./chapter.model");
 
 const getChapter = async (chapterId) => {
     return await chapterModel.getChapter(chapterId)

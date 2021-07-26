@@ -1,15 +1,15 @@
 const routes = Object.freeze([
     {
         path: "/novel",
-        router: "src/routers/novel.router"
+        router: "src/models/novel/novel.router"
     },
     {
         path: "/api",
-        router: "src/routers/public.router"
+        router: "src/models/public/public.router"
     },
     {
         path: "/chapter",
-        router: "src/routers/chapter.router"
+        router: "src/models/chapter/chapter.router"
     }
 ])
 

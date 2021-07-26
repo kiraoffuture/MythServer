@@ -1,6 +1,6 @@
 const express = require("express")
 const router = express.Router()
-const chapterController = require("../controllers/chapter.controller")
+const chapterController = require("./chapter.controller")
 
 /**
  @api {get} /chapter/{id} Get chapter detail

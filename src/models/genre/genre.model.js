@@ -1,4 +1,4 @@
-const query = require("./mysql").query
+const query = require("../mysql").query
 
 const getGenreNamesByIds = (ids) => {
     if (ids.length === 0) return Promise.resolve([])

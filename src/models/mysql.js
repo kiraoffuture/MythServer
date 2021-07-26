@@ -20,7 +20,6 @@ const connectMysql = async () => new Promise(((resolve, reject) => {
 }))
 
 const querySql = async (connection, sql, params) => new Promise(((resolve, reject) => {
-    console.log(sql)
     connection.query(sql, params, (error, results) => {
         if (error) return reject(error)
         return resolve(results)

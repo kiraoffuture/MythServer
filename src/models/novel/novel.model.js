@@ -1,4 +1,4 @@
-const query = require("./mysql").query
+const query = require("../mysql").query
 
 const getAll = async () => query("select * from novel")
 

@@ -1,9 +1,9 @@
-const novelService = require("../services/novel.service")
-const responseBuilder = require("../common/builders/response.builder")
-const {HttpCode} = require("../common/enums");
-const constants = require("../common/constants")
-const logError = require("../common/error-logs")
-const {isBlank} = require("../common/helper");
+const novelService = require("./novel.service")
+const responseBuilder = require("../../common/builders/response.builder")
+const {HttpCode} = require("../../common/enums");
+const constants = require("../../common/constants")
+const logError = require("../../common/error-logs")
+const {isBlank} = require("../../common/helper");
 
 const getAll = (req, res) => {
     novelService.getAll().then((novels) => {

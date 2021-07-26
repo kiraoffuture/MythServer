@@ -1,6 +1,6 @@
 const express = require("express")
 const router = express.Router()
-const novelController = require("../controllers/novel.controller")
+const novelController = require("./novel.controller")
 
 /**
  @api {get} /novel/all Get All Novels

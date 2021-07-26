@@ -1,4 +1,4 @@
-const query = require("./mysql").query
+const query = require("../mysql").query
 
 const getAuthorIdsByNovelId = async (novelId) => {
     const rows = await query(`select id_author

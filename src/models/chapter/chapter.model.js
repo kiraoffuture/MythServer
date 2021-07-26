@@ -1,4 +1,4 @@
-const query = require("./mysql").query
+const query = require("../mysql").query
 
 const countChapterByNovelId = async (novelId) => {
     const result = await query(`select count(id)

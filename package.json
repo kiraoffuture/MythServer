@@ -5,7 +5,7 @@
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "(apidoc -i src/routers -o src/public/api-doc/) & (node src/app.js)"
+    "start": "(apidoc -i src/ -o src/public/api-doc/) & (node src/app.js)"
   },
   "keywords": [],
   "author": "Kira",

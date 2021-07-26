@@ -1,7 +1,7 @@
-const responseBuilder = require("../common/builders/response.builder")
-const chapterService = require("../services/chapter.service")
-const logError = require("../common/error-logs")
-const {HttpCode} = require("../common/enums")
+const responseBuilder = require("../../common/builders/response.builder")
+const chapterService = require("./chapter.service")
+const logError = require("../../common/error-logs")
+const {HttpCode} = require("../../common/enums")
 
 const getChapter = (req, res) => {
     const chapterId = req.params.id

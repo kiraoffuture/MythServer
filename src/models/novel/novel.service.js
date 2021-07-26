@@ -1,9 +1,9 @@
-const novelModel = require("../models/novel.model")
-const authorNovelModel = require("../models/author-novel.model")
-const authorModel = require("../models/author.model")
-const genreNovelModel = require("../models/genre-novel.model")
-const genreModel = require("../models/genre.model")
-const chapterModel = require("../models/chapter.model")
+const novelModel = require("./novel.model")
+const authorNovelModel = require("../author_novel/author-novel.model")
+const authorModel = require("../author/author.model")
+const genreNovelModel = require("../genre_novel/genre-novel.model")
+const genreModel = require("../genre/genre.model")
+const chapterModel = require("../chapter/chapter.model")
 
 const getAll = novelModel.getAll
 
