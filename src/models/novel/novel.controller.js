@@ -66,6 +66,21 @@ const getFullChapters = (req, res) => {
     })
 }
 
+const searchSuggestion = (req, res) => {
+    const searchText = req.query.search_text
+    if (isBlank(searchText)) {
+        logError("Novel search suggestion", {searchText}, Error("Empty key search"))
+        res.json(responseBuilder.build(HttpCode.OK, []))
+        return
+    }
+    novelService.searchSuggestion(searchText).then(novels => {
+        res.json(responseBuilder.build(HttpCode.OK, novels))
+    }, error => {
+        logError("Novel search suggestion", {searchText}, error)
+        res.json(responseBuilder.build(HttpCode.OK, []))
+    })
+}
+
 const search = (req, res) => {
     const searchText = req.query.search_text
     if (isBlank(searchText)) {
@@ -81,4 +96,4 @@ const search = (req, res) => {
     })
 }
 
-module.exports = {getAll, getNewest, getPopular, getDetail, getChapters, getFullChapters, search}
+module.exports = {getAll, getNewest, getPopular, getDetail, getChapters, getFullChapters, searchSuggestion, search}
