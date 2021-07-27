@@ -1,7 +1,7 @@
 const novelModel = require("./novel.model")
-const authorNovelModel = require("../author_novel/author-novel.model")
+const authorNovelModel = require("../author_novel/author_novel.model")
 const authorModel = require("../author/author.model")
-const genreNovelModel = require("../genre_novel/genre-novel.model")
+const genreNovelModel = require("../genre_novel/genre_novel.model")
 const genreModel = require("../genre/genre.model")
 const chapterModel = require("../chapter/chapter.model")
 
@@ -44,4 +44,13 @@ const searchSuggestion = async (searchText) => novelModel.searchSuggestion(searc
 
 const search = async (searchText) => novelModel.search(searchText)
 
-module.exports = {getAll, getNewest, getPopular, getDetail, getChapters, getFullChapters, searchSuggestion, search}
+module.exports = {
+    getAll,
+    getNewest,
+    getPopular,
+    getDetail,
+    getChapters,
+    getFullChapters,
+    searchSuggestion,
+    search
+}

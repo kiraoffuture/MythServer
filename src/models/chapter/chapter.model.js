@@ -9,7 +9,8 @@ const countChapterByNovelId = async (novelId) => {
 
 const getChaptersByNovelId = async (novelId) => query(`select id, \`index\`, title
                                                        from chapter
-                                                       where id_novel = ?`, [novelId])
+                                                       where id_novel = ?
+                                                       order by \`index\``, [novelId])
 const getFullChaptersByNovelId = async (novelId) => query(`select id, \`index\`, title, content
                                                            from chapter
                                                            where id_novel = ?`, [novelId])

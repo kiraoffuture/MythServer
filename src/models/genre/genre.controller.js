@@ -12,4 +12,14 @@ const getGenre = (req, res) => {
     })
 }
 
-module.exports = {getGenre}
+const getNovelsByGenreId = (req, res) => {
+    const genreId = req.query.id
+    genreService.getNovelsByGenreId(genreId).then(novels => {
+        res.json(responseBuilder.build(HttpCode.OK, novels))
+    }, error => {
+        logError("Get List Novels By Genre Id", {}, error)
+        res.json(responseBuilder.build(HttpCode.OK, []))
+    })
+}
+
+module.exports = {getGenre, getNovelsByGenreId}
