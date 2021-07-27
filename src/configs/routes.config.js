@@ -10,6 +10,10 @@ const routes = Object.freeze([
     {
         path: "/chapter",
         router: "src/models/chapter/chapter.router"
+    },
+    {
+        path: "/genre",
+        router: "src/models/genre/genre.router"
     }
 ])
 
