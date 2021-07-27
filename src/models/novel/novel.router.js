@@ -168,8 +168,8 @@ router.get("/chapters/:id", novelController.getChapters)
 router.get("/download_chapters/:id", novelController.getFullChapters)
 
 /**
- @api {get} /novel/search Search novel
- @apiName SearchNovel
+ @api {get} /novel/search_suggestion Search suggestion novel
+ @apiName SearchSuggestionNovel
  @apiGroup Novel
 
  @apiParam {String} search_text key to search novel
@@ -200,6 +200,41 @@ router.get("/download_chapters/:id", novelController.getFullChapters)
             "id": 4,
             "title": "Tuyệt Thế Vũ Thần",
             "image_url": "https://123truyen.com/images/2019/07/tuyet-the-vu-than.jpeg"
+        }
+    ]
+}
+ */
+router.get("/search_suggestion", novelController.searchSuggestion)
+
+/**
+ @api {get} /novel/search Search novel
+ @apiName SearchNovel
+ @apiGroup Novel
+
+ @apiParam {String} search_text key to search novel
+
+ @apiSuccess {String} status <code>success</code>
+ @apiSuccess {Object} data List Novels
+
+ @apiSuccessExample Success-Response:
+ {
+    "status": "success",
+    "data": [
+        {
+            "id": 18,
+            "image_url": "https://123truyen.com/images/2019/07/tuyet-the-vu-than.jpeg",
+            "title": "Tuyệt Thế Vũ Thần",
+            "details": "<p>Cửu Tiêu đại lục, tông môn mọc lên san sát như rừng, võ đạo vi tôn, kẻ yếu tầm thường, bị người khi nhục, cường giả giận dữ, máu chảy thành sông. Võ đạo hoàng giả, càng có thể quan sát thiên địa, ngạo cười non sông, động tắc thì thiên kinh thạch phá, phơi thây trăm vạn. Một đời cường nhân Lâm Phong, nghịch thiên xuất thế, đến kinh thế truyền thừa, tu võ đạo, đạp trời cao, phá thiên địa, ngạo trời xanh! Đôi lời của dịch giả: Tuyệt Thế Vũ Thần là một bộ thuộc thể loại Huyền Huyễn, nó có kiếm hiệp kiếm tu hay những loại Vũ Hồn huyền ảo đầy màu sắc. Lâm Phong, nhân vật chính, hắn có một đời tuổi trẻ ngông cuồng và những năm tháng thanh niên đầy nhiệt huyết. Hắn có những bóng hồng xinh đẹp và những cuộc tình đẹp đẽ đầy tình cảm</p>\n<p>Mời mọi người hãy ghé xem Tuyệt Thế Vũ Thần để có thể dõi theo bước chân của Lâm Phong. Cảnh giới tu luyện: Khí Vũ, Linh Vũ, Huyền Vũ, Thiên Vũ, Tôn Vũ... Mỗi cảnh giới lại phân làm chín tầng.</p>\n<p class=\"font-italic\"><strong>Chúc bạn có những giây phút vui vẻ khi đọc truyện Tuyệt Thế Vũ Thần!</strong></p>",
+            "view_count": 1797616,
+            "rating": 4.877879247027973
+        },
+        {
+            "id": 19,
+            "image_url": "https://123truyen.com/images/2020/12/toi-cuong-he-thong-de-hoang.jpeg",
+            "title": "Tối Cường Hệ Thống Đế Hoàng",
+            "details": "<p>【 【 văn học mạng chi vương huyền huyễn \"BOSS lưu\" yêu cầu viết bài 】 dự thi tác phẩm 】<br> <br> Đinh! Hồng bao mở ra thành công! Thu hoạch được thần khí một thanh! Đinh! Thu hoạch được rút thưởng luân bàn, bắt đầu rút thưởng!<br> <br> Tây Môn Hạo, mang theo dị giới hồng bao hệ thống xuyên qua đến Thiên Kình đại lục, Khánh quốc Đại hoàng tử thân bên trên, bắt đầu bật hack hoàng quyền chi lộ!<br> <br> Công pháp, phù lục, đan dược, thần tiên? Yêu quái? Hết thảy đến trẫm trong chén tới!<br> <br> Vương gia? Công chúa? Quân vương? Môn phái đại năng? Hết thảy thần phục tại trẫm dưới chân! Trẫm thế nhưng là mạnh nhất hồng bao hoàng đế!<br> <br> Hạo gia mở hồng bao bật hack! Thiên Kình chinh phục tại dưới chân! Liền hỏi một câu: Còn có ai? ! ! !<br> <br> Cảnh giới: Thoát thai, Ngưng Khí, Đoán Thần, luyện hồn, quy nhất, hóa hư, khai vân, trúc tinh, độ kiếp. . .<br> <br> Truyện mới của lão Hiệp Xả Đản, vẫn phong cách vô sỉ, vô địch lưu lại thêm tí hài tí sắc quen thuộc.<br> <br> ✯ Cvt by KOL</p>",
+            "view_count": 154153,
+            "rating": 3.6546282126511205
         }
     ]
 }
