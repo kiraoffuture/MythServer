@@ -44,4 +44,13 @@ const searchSuggestion = async (searchText) => novelModel.searchSuggestion(searc
 
 const search = async (searchText) => novelModel.search(searchText)
 
-module.exports = {getAll, getNewest, getPopular, getDetail, getChapters, getFullChapters, searchSuggestion, search}
+module.exports = {
+    getAll,
+    getNewest,
+    getPopular,
+    getDetail,
+    getChapters,
+    getFullChapters,
+    searchSuggestion,
+    search
+}
