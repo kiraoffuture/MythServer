@@ -1,4 +1,4 @@
-const serverPort = 3000
+const serverPort = 80
 
 const successStatus = "success"
 
