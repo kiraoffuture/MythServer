@@ -2,10 +2,10 @@ const mysql = require("mysql")
 const {MySqlState} = require("../common/enums")
 
 const connection = mysql.createConnection({
-    host: process.env.MYSQL_HOST,
-    user: process.env.MYSQL_USER,
-    password: process.env.MYSQL_PASSWORD,
-    database: process.env.MYSQL_DATABASE,
+    host: process.env.MYSQL_HOST ? process.env.MYSQL_HOST : "localhost",
+    user: process.env.MYSQL_USER ? process.env.MYSQL_USER : "root",
+    password: process.env.MYSQL_PASSWORD ? process.env.MYSQL_PASSWORD : "1234",
+    database: process.env.MYSQL_DATABASE ? process.env.MYSQL_DATABASE : "myth",
     charset: "utf8_unicode_ci"
 })
 
