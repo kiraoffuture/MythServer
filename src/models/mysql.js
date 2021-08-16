@@ -27,6 +27,7 @@ const querySql = async (connection, sql, params) => new Promise(((resolve, rejec
 }))
 
 const query = async (sql, params) => {
+    console.log("query = " + query)
     const connection = await getConnection()
     console.log("connection = " + connection)
     if (connection === undefined) return
