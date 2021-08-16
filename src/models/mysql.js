@@ -1,7 +1,7 @@
 const mysql = require("mysql")
 
 const mysqlPool = mysql.createPool({
-    connectionLimit: 100,
+    connectionLimit: 10000,
     host: process.env.MYSQL_HOST ? process.env.MYSQL_HOST : "localhost",
     user: process.env.MYSQL_USER ? process.env.MYSQL_USER : "root",
     password: process.env.MYSQL_PASSWORD ? process.env.MYSQL_PASSWORD : "1234",

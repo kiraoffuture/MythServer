@@ -7,7 +7,7 @@ const test = () => {
     console.log(`id = ${id}`)
     const fullChapterUrl = `http://${endPoint}/novel/download_chapters/${id}`
 
-    const array = [...Array(parseInt(15)).keys()]
+    const array = [...Array(parseInt(1000)).keys()]
     array.forEach(param => {
         axios.get("http://103.82.25.200/novel/newest").then(fetchFullChapterResult => {
             console.log("done")
