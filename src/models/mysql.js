@@ -1,5 +1,4 @@
 const mysql = require("mysql")
-const {MySqlState} = require("../common/enums")
 
 const mysqlPool = mysql.createPool({
     connectionLimit: 100,
@@ -11,10 +10,9 @@ const mysqlPool = mysql.createPool({
 });
 
 const getConnection = async () => new Promise(((resolve, reject) => {
-    mysqlPool.getConnection(function (err, connection) {
+    mysqlPool.getConnection(async (err, connection) => {
         if (err) {
-            console.log(' Error getting mysql_pool connection: ' + err);
-            reject(err)
+            resolve(await getConnection())
             return
         }
         resolve(connection)
